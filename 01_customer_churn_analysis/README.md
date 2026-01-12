@@ -6,7 +6,7 @@
 
 ## English
 
- ### Dataset
+### Dataset
 
 This project uses a publicly available dataset designed to simulate real-world e-commerce shopper behavior.
 
@@ -14,7 +14,14 @@ Due to file size limitations, the dataset is not stored directly in this GitHub 
 Instructions on how to download the dataset are provided in the data/ folder.
 
 ### 1. Business Problem
-Briefly describe the business context and the problem this project aims to solve.
+
+E-commerce companies often face customer drop-off throughout the purchasing journey.
+
+This project aims to analyze shopper behavior data to understand:
+- Where users abandon the purchase funnel
+- Which behavioral patterns are associated with conversion
+- What actionable insights can help improve customer retention and conversion rates
+
 
 ---
 
@@ -59,7 +66,14 @@ As instruções para download do dataset estão disponíveis na pasta data/.
 
 
 ### 1. Problema de Negócio
-Descreva brevemente o contexto de negócio e o problema que este projeto busca resolver.
+
+Empresas de e-commerce frequentemente enfrentam abandono de clientes ao longo da jornada de compra.
+
+Este projeto tem como objetivo analisar dados de comportamento de usuários para entender:
+- Em quais etapas ocorre o abandono do funil de compra
+- Quais padrões de comportamento estão associados à conversão
+- Quais insights acionáveis podem ajudar a melhorar a retenção de clientes e a taxa de conversão
+
 
 ---
 
