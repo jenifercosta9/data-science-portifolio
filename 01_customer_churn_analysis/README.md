@@ -6,6 +6,13 @@
 
 ## English
 
+ ### Dataset
+
+This project uses a publicly available dataset designed to simulate real-world e-commerce shopper behavior.
+
+Due to file size limitations, the dataset is not stored directly in this GitHub repository.
+Instructions on how to download the dataset are provided in the data/ folder.
+
 ### 1. Business Problem
 Briefly describe the business context and the problem this project aims to solve.
 
@@ -44,6 +51,12 @@ Suggest possible improvements, additional analyses, or future developments.
 ---
 
 ## Português
+
+Este projeto utiliza um dataset de acesso público, desenvolvido para simular o comportamento real de consumidores em e-commerce.
+
+Devido às limitações de tamanho de arquivos do GitHub, o dataset não está armazenado diretamente neste repositório.
+As instruções para download do dataset estão disponíveis na pasta data/.
+
 
 ### 1. Problema de Negócio
 Descreva brevemente o contexto de negócio e o problema que este projeto busca resolver.
