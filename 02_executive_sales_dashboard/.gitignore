@@ -1,0 +1,31 @@
+# Ambientes virtuais
+venv/
+env/
+ENV/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+*.log
+
+# Dados sensíveis (opcional - comente se quiser versionar os dados)
+# data/raw/*.csv
+# data/processed/*.csv
