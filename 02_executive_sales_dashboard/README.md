@@ -446,8 +446,8 @@ streamlit run dashboard/app.py
 
 **Jenifer Costa**
 
-- 💼 LinkedIn: [seu-linkedin](www.linkedin.com/in/jenifer-costa-9a0384106)
-- 🐙 GitHub: [@seu-usuario](https://github.com/jenifercosta9)
+- 💼 LinkedIn: www.linkedin.com/in/jenifer-costa-9a0384106
+- 🐙 GitHub: https://github.com/jenifercosta9
 - 📧 Email: jenicostarj@gmail.com
 
 ---
