@@ -13,6 +13,12 @@
 
 ## English
 
+## Executive Summary
+
+This project delivers an interactive executive dashboard analyzing 47,000+ liquor sales transactions in Iowa, designed to support data-driven decisions on inventory optimization, regional performance, vendor strategy, and profitability.
+
+Using BigQuery for scalable data processing and Streamlit with Plotly for visualization, the solution transforms raw transactional data into clear business insights, enabling executives to identify top-performing categories, detect underperforming regions, and optimize supplier and pricing strategies.
+
 ### 1. Business Problem
 
 Liquor retail businesses in Iowa face challenges in understanding sales performance across different regions, products, and time periods. Store managers and executives need actionable insights to:
@@ -202,9 +208,17 @@ This project delivers an **interactive executive dashboard** that provides real-
 - [ ] Create automated alert system for KPI thresholds
 - [ ] Export functionality for reports (PDF/Excel)
 
+The dashboard was built with a strong focus on executive usability, ensuring insights are actionable and aligned with real-world business decisions.
+
 ---
 
 ## Português
+
+## Resumo Executivo
+
+Este projeto apresenta um dashboard executivo interativo com análise de mais de 47 mil transações de vendas de bebidas no estado de Iowa, desenvolvido para apoiar decisões estratégicas relacionadas à otimização de estoque, desempenho regional, gestão de fornecedores e rentabilidade.
+
+Utilizando BigQuery para processamento escalável de dados e Streamlit com Plotly para visualização, a solução converte dados transacionais brutos em insights claros de negócio, permitindo a identificação de categorias mais lucrativas, regiões com baixo desempenho e oportunidades de melhoria em precificação e estratégia comercial.
 
 ### 1. Problema de Negócio
 
