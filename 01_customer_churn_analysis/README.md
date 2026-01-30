@@ -1,5 +1,5 @@
-
-# E-commerce Customer Behavior Analysis / Análise de Comportamento de Clientes E-commerce
+# E-commerce Customer Behavior Analysis  
+## Análise de Comportamento de Clientes em E-commerce
 
 [English](#english) | [Português](#português)
 
@@ -7,99 +7,176 @@
 
 ## English
 
-**End-to-end Data Science project analyzing 1M+ e-commerce customer records with ML pipeline.**
+**End-to-end Data Science project focused on customer behavior analysis to evaluate the business impact of a Premium subscription and assess the feasibility of churn prediction models.**
 
-**Dataset:** Simulated e-commerce behavior (not stored due to GitHub limits - see `data/` folder). Contains demographic, behavioral, operational variables:
-- "Weekly purchase frequency"
-- "Cart abandonment rate" 
-- "Return rate"
-- "Subscription type (Premium vs Non-Premium)"
-- "User segmentation indicators"
+**Key takeaway:**  
+*With the current data strategy, proactive churn prediction is not viable. The main opportunity lies in improving data collection, not in model complexity.*
 
-![Results](images/model1_leakage.png) ![Realistic](images/model2_realistic.png)
+**Dataset:**  
+Simulated large-scale e-commerce dataset (1M+ customer records). Due to GitHub size limitations, raw data is not stored, but generation instructions are available in the `data/` folder.  
+The dataset includes demographic, behavioral, and operational variables such as:
+- Weekly purchase frequency  
+- Cart abandonment rate  
+- Return rate  
+- Subscription type (Premium vs Non-Premium)  
+- Customer segmentation indicators  
+
+![Model with Leakage](images/model1_leakage.png)  
+![Realistic Model](images/model2_realistic.png)
+
+---
 
 ### 🎯 Business Problem
-**Original:** Test Premium subscription impact on behavior/value  
-**Extended:** + ML Churn prediction capabilities
+
+**Original objective:**  
+Evaluate whether a Premium subscription positively impacts customer behavior and business value.
+
+**Extended objective:**  
+Assess whether the available behavioral data supports the development of a reliable churn prediction model.
+
+---
 
 ### 📊 Key Results
-| Model | ROC-AUC | Key Finding |
-|-------|---------|-------------|
-| **With Leakage** | **1.000** | `return_rate` 95.5% importance (data leakage!) |
-| **Realistic** | **0.500** | Behavioral data **CANNOT predict churn proactively** |
 
-**Critical Insight:** *"Need granular engagement tracking data for predictive ML"*
+| Model | ROC-AUC | Key Finding |
+|------|--------|------------|
+| **Model with Data Leakage** | **1.000** | `return_rate` dominated feature importance (95.5%), revealing severe data leakage |
+| **Realistic Model** | **0.500** | Behavioral data alone is insufficient for proactive churn prediction |
+
+**Critical Insight:**  
+*A high-performing model can be misleading. Without granular engagement data, churn prediction becomes reactive rather than predictive.*
+
+---
 
 ### 🔬 Methodology
 
-1. EDA + Statistical tests (Mann-Whitney p=0.3779 ✓ Premium = No spending uplift)
-2. Customer segmentation (income/spending)  
-3. ML Pipeline: Churn prediction → Leakage detection → Realistic model
+1. **Exploratory Data Analysis (EDA)** and statistical hypothesis testing  
+   - Mann-Whitney U Test (p-value = 0.3779)  
+   - Result: No statistically significant difference between Premium and Non-Premium customers  
 
-**Tech Stack:** pandas • NumPy • Matplotlib • SciPy • seaborn • scikit-learn • RandomForest
+2. **Customer segmentation** based on income and spending behavior  
 
-### 💎 Key Insights (Original + New)
-✅ **No Premium vs Non-Premium differences** (purchases, returns, abandonment)  
-✅ **Premium not a value differentiator**  
-🔥 **NEW:** Current data insufficient for churn prediction
+3. **Machine Learning pipeline**  
+   - Churn prediction model development  
+   - Feature importance analysis  
+   - Data leakage detection  
+   - Construction of a realistic baseline model  
+
+**Tech Stack:**  
+`pandas` • `NumPy` • `Matplotlib` • `SciPy` • `seaborn` • `scikit-learn` • `RandomForest`
+
+---
+
+### 💎 Key Insights
+
+- No meaningful behavioral differences between Premium and Non-Premium customers  
+- Premium subscription does not function as a clear value differentiator  
+- **New insight:** Current data does not support predictive churn modeling  
+
+---
 
 ### 🏆 Business Recommendations
-1. **Reactive retention:** Alert `return_rate > 75th percentile`
-2. **A/B Testing:** Discounts for high-risk customers
-3. **Data Strategy:** Track page time/clicks for future ML
-4. **Reevaluate Premium value proposition**
+
+1. **Reactive retention strategy**  
+   - Trigger alerts when `return_rate` exceeds the 75th percentile  
+
+2. **Targeted A/B testing**  
+   - Test discounts or incentives for customers identified as high risk  
+
+3. **Data strategy improvement**  
+   - Track granular engagement metrics (page views, time on site, click behavior)  
+
+4. **Product strategy review**  
+   - Reassess the Premium subscription value proposition  
 
 ---
 
 ## Português
 
-**Projeto completo de Data Science: 1M+ registros e-commerce + pipeline ML.**
+**Projeto completo de Data Science com foco em análise de comportamento de clientes para avaliar o impacto de uma assinatura Premium e a viabilidade de modelos de predição de churn.**
 
-**Dataset:** Comportamento simulado (instruções em `data/`). Variáveis demográficas, comportamentais:
-- "Frequência semanal de compras"
-- "Taxa de abandono de carrinho"
-- "Taxa de devolução" 
-- "Tipo assinatura (Premium vs Não-Premium)"
+**Insight principal:**  
+*Com a estratégia atual de dados, a predição proativa de churn não é viável. A maior alavanca está na coleta de dados, não na complexidade do modelo.*
+
+**Dataset:**  
+Base de dados simulada em larga escala (1M+ registros). Os dados brutos não estão armazenados no GitHub por limitação de tamanho, mas as instruções de geração estão disponíveis na pasta `data/`.  
+As variáveis incluem informações demográficas, comportamentais e operacionais, como:
+- Frequência semanal de compras  
+- Taxa de abandono de carrinho  
+- Taxa de devolução  
+- Tipo de assinatura (Premium vs Não-Premium)  
+- Indicadores de segmentação de clientes  
+
+---
 
 ### 🎯 Problema de Negócio
-**Original:** Validar impacto Premium  
-**Expandido:** + Predição de churn
+
+**Objetivo original:**  
+Avaliar se a assinatura Premium gera impacto positivo no comportamento do cliente e no valor para o negócio.
+
+**Objetivo expandido:**  
+Verificar se os dados comportamentais disponíveis permitem a construção de um modelo confiável de predição de churn.
+
+---
 
 ### 📊 Resultados Principais
-| Modelo | ROC-AUC | Descoberta |
-|--------|---------|------------|
-| **Vazamento** | **1.000** | `return_rate` 95.5% (detectado!) |
-| **Realista** | **0.500** | **Dados NÃO predizem churn** |
 
-**Insight Crítico:** *"Precisamos dados granulares de engajamento"*
+| Modelo | ROC-AUC | Descoberta |
+|------|--------|------------|
+| **Modelo com Vazamento de Dados** | **1.000** | `return_rate` concentrou 95.5% da importância, indicando vazamento |
+| **Modelo Realista** | **0.500** | Os dados atuais não permitem predição proativa de churn |
+
+**Insight crítico:**  
+*Um modelo com métricas perfeitas pode esconder problemas graves. Sem dados granulares de engajamento, a predição de churn se torna reativa.*
+
+---
 
 ### 🔬 Metodologia
 
-1. EDA + Testes (Mann-Whitney p=0.3779 ✓ Premium sem uplift)
-2. Segmentação renda/gasto
-3. ML: Churn → Leakage detection → Modelo realista
+1. **Análise Exploratória de Dados (EDA)** e testes estatísticos  
+   - Teste de Mann-Whitney (p-valor = 0.3779)  
+   - Resultado: nenhuma diferença estatisticamente significativa entre clientes Premium e Não-Premium  
 
-**Tech:** pandas • NumPy • Matplotlib • SciPy • seaborn • scikit-learn • RandomForest
+2. **Segmentação de clientes** com base em renda e comportamento de gasto  
 
-### 💎 Insights (Original + Novo)
-✅ **Sem diferenças Premium vs Não-Premium**  
-✅ **Premium não diferencia valor**  
-🔥 **NOVO:** Dados insuficientes para churn
+3. **Pipeline de Machine Learning**  
+   - Construção do modelo de churn  
+   - Análise de importância das variáveis  
+   - Detecção de vazamento de dados  
+   - Definição de um modelo baseline realista  
 
-### 🏆 Recomendações
-1. **Retenção reativa:** Alertas `return_rate > 75º`
-2. **Teste A/B:** Descontos clientes risco
-3. **Estratégia dados:** Rastrear tempo/cliques
-4. **Reavaliar Premium**
+**Stack Tecnológica:**  
+`pandas` • `NumPy` • `Matplotlib` • `SciPy` • `seaborn` • `scikit-learn` • `RandomForest`
+
+---
+
+### 💎 Insights Principais
+
+- Não há diferenças comportamentais relevantes entre clientes Premium e Não-Premium  
+- A assinatura Premium não se configura como diferencial claro de valor  
+- **Novo insight:** Os dados atuais são insuficientes para modelos preditivos de churn  
+
+---
+
+### 🏆 Recomendações de Negócio
+
+1. **Retenção reativa**  
+   - Alertas quando a `return_rate` ultrapassar o percentil 75  
+
+2. **Testes A/B direcionados**  
+   - Ofertas e incentivos para clientes com maior risco de churn  
+
+3. **Estratégia de dados**  
+   - Coleta de métricas detalhadas de engajamento (tempo de navegação, cliques, páginas visitadas)  
+
+4. **Reavaliação do produto Premium**  
+   - Revisar a proposta de valor da assinatura  
 
 ---
 
 ## 🚀 Next Steps / Próximos Passos
-- Time-series analysis / Análise temporal
-- Advanced clustering / Clusterização avançada
-- A/B experiments / Experimentos controlados
 
-
-
-
+- Time-series analysis / Análise temporal  
+- Advanced clustering techniques / Técnicas avançadas de clusterização  
+- Controlled A/B experiments / Experimentos A/B controlados
 
