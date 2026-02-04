@@ -1,4 +1,4 @@
-# Churn Prediction Model
+# International Trade Analysis
 
 [English](#english) | [Português](#português)
 
