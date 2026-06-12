@@ -1,10 +1,9 @@
-fastapi
-uvicorn
-joblib
+streamlit
 pandas
 numpy
+requests
 scikit-learn
-pydantic
-Prophet
-matplotlib
+joblib
 plotly
+matplotlib
+prophet
