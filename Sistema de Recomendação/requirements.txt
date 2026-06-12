@@ -7,3 +7,4 @@ scikit-learn
 pydantic
 Prophet
 matplotlib
+plotly
