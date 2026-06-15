@@ -78,11 +78,11 @@ if st.button("Analisar senador"):
         st.warning("Digite um nome válido")
 
     else:
-      try:
-        st.session_state.data = recomendar_senadores(senador)
+        try:
+            st.session_state.data = recomendar_senadores(senador)
 
-    except KeyError as e:
-        st.error(str(e))
+        except KeyError as e:
+            st.error(str(e))
 
 # =========================
 # EXIBIÇÃO
