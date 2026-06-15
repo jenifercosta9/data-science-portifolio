@@ -1,8 +1,17 @@
 import streamlit as st
-import requests
+import joblib
 import plotly.express as px
 import pandas as pd
 import plotly.io as pio
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+model_path = BASE_DIR / "recomendador_ceaps.sav"
+
+modelo = joblib.load(model_path)
+
+similaridade_df = modelo["similaridade"]
+matriz_interacoes = modelo["matriz"]
 
 # =========================
 # CONFIGURAÇÃO
@@ -23,6 +32,43 @@ senador = st.text_input("🔎 Digite o nome do senador")
 if "data" not in st.session_state:
     st.session_state.data = None
 
+
+# =========================
+# FUNÇÃO DO MODELO
+# =========================
+def recomendar_senadores(nome_senador, top_n=5):
+
+    if nome_senador not in similaridade_df.index:
+        raise KeyError(f"Senador '{nome_senador}' não encontrado.")
+
+    serie = similaridade_df[nome_senador]
+
+    similares = (
+        serie.sort_values(ascending=False)
+        .iloc[1:top_n+1]
+    )
+
+    senadores_similares = similares.index.tolist()
+
+    despesas_media = (
+        matriz_interacoes.loc[senadores_similares]
+        .mean()
+        .sort_values(ascending=False)
+        .head(5)
+    )
+
+    return {
+        "input": nome_senador,
+        "similares": [
+            {"senador": s, "similaridade": float(similares[s])}
+            for s in senadores_similares
+        ],
+        "top_despesas": [
+            {"tipo_despesa": d, "valor_medio": float(v)}
+            for d, v in despesas_media.items()
+        ]
+    }
+
 # =========================
 # CHAMADA API
 # =========================
@@ -32,12 +78,11 @@ if st.button("Analisar senador"):
         st.warning("Digite um nome válido")
 
     else:
-        response = requests.get(f"http://127.0.0.1:8000/recomendar/{senador}")
+      try:
+        st.session_state.data = recomendar_senadores(senador)
 
-        if response.status_code != 200:
-            st.error(response.json()["detail"])
-        else:
-            st.session_state.data = response.json()
+    except KeyError as e:
+        st.error(str(e))
 
 # =========================
 # EXIBIÇÃO
