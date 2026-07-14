@@ -57,7 +57,7 @@ Tools: Python · MySQL · Power BI · Power Query · DAX
 ### 8. Next Steps
 - Time-series tracking of satisfaction scores · Consumer sentiment analysis · Automated data refresh pipeline · Logistics performance metrics
 
-### 9. Click here to view the dashboard: https://encurtador.com.br/MqhP
+### 9. Click here to view the dashboard: http://bit.ly/4w4ByAg
 
 ---
 
@@ -111,4 +111,4 @@ Ferramentas: Python · MySQL · Power BI · Power Query · DAX
 ### 8. Próximos Passos
 - Acompanhamento temporal das notas · Análise de sentimento · Pipeline automatizado · Métricas de logística
 
-### 9. Clique aqui para visualizar o dashboard: https://encurtador.com.br/MqhP
+### 9. Clique aqui para visualizar o dashboard: http://bit.ly/4w4ByAg
